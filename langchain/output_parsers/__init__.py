@@ -3,7 +3,7 @@ from langchain.output_parsers.list import (
     CommaSeparatedListOutputParser,
     ListOutputParser,
 )
-from langchain.output_parsers.pydantic import PydanticOutputParser, GermanPydanticOutputParser
+from langchain.output_parsers.pydantic import PydanticOutputParser, GermanPydanticOutputParser, SimpleGermanPydanticOutputParser
 from langchain.output_parsers.rail_parser import GuardrailsOutputParser
 from langchain.output_parsers.regex import RegexParser
 from langchain.output_parsers.regex_dict import RegexDictParser
@@ -20,6 +20,7 @@ __all__ = [
     "GuardrailsOutputParser",
     "PydanticOutputParser",
     "GermanPydanticOutputParser",
+    "SimpleGermanPydanticOutputParser",
     "RetryOutputParser",
     "RetryWithErrorOutputParser",
     "OutputFixingParser",

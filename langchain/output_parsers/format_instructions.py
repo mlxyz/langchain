@@ -28,3 +28,8 @@ Hier ist das Ausgabe-Schema:
 {schema}
 ```
 """
+
+SIMPLE_GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS = """Antworte nur mit JSON, das die folgenden Felder enthält: {schema}
+Schreibe keinen normalen Text.
+Weiche nicht vom genannten JSON-Schema ab.
+"""

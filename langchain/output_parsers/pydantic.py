@@ -63,3 +63,23 @@ class GermanPydanticOutputParser(PydanticOutputParser):
         schema_str = json.dumps(reduced_schema)
 
         return GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS.format(schema=schema_str)
+
+
+class SimpleGermanPydanticOutputParser(PydanticOutputParser):
+    def get_format_instructions(self) -> str:
+        schema = self.pydantic_object.schema()
+
+        short_property_descriptions = []
+        for prop in schema['properties'].items():
+            prop_name = prop[0]
+            prop_type = prop[1]['type']
+            short_property_description = f'{prop_name}:'
+            if prop_type == 'array':
+                short_property_description += f'array[{prop[1]["items"]["type"]}]'
+            else:
+                short_property_description += prop_type
+            short_property_descriptions.append(short_property_description)
+
+        schema_str = ', '.join(short_property_descriptions)
+
+        return GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS.format(schema=schema_str)
