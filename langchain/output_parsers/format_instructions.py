@@ -17,3 +17,14 @@ Here is the output schema:
 ```
 {schema}
 ```"""
+
+GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS = """Die Ausgabe muss als JSON-Instanz formatiert werden, die dem unten stehenden JSON-Schema entspricht. Die Ausgabe darf keinen normalen Text enthalten, sondern nur JSON im entsprechenden Schema.
+
+Beispielsweise, für das Schema {{"properties": {{"foo": {{"title": "Foo", "description": "a list of strings", "type": "array", "items": {{"type": "string"}}}}}}, "required": ["foo"]}}
+ist das Objekt {{"foo": ["bar", "baz"]}} eine korrekte Instanz des Schemas. Das Objekt {{"properties": {{"foo": ["bar", "baz"]}}}} ist nicht korrekt.
+
+Hier ist das Ausgabe-Schema:
+```
+{schema}
+```
+"""
