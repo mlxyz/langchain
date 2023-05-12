@@ -4,7 +4,7 @@ from typing import Type, TypeVar
 
 from pydantic import BaseModel, ValidationError
 
-from langchain.output_parsers.format_instructions import PYDANTIC_FORMAT_INSTRUCTIONS, GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS
+from langchain.output_parsers.format_instructions import PYDANTIC_FORMAT_INSTRUCTIONS, GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS, SIMPLE_GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS
 from langchain.schema import BaseOutputParser, OutputParserException
 
 T = TypeVar("T", bound=BaseModel)
@@ -82,4 +82,4 @@ class SimpleGermanPydanticOutputParser(PydanticOutputParser):
 
         schema_str = ', '.join(short_property_descriptions)
 
-        return GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS.format(schema=schema_str)
+        return SIMPLE_GERMAN_PYDANTIC_FORMAT_INSTRUCTIONS.format(schema=schema_str)
